@@ -36,16 +36,12 @@
   background-color: rgba(0, 0, 0, 0);
   border: none;
   padding: 0;
-  align-self: flex-end;
-  display: flex;
-}
-
-.popup__close {
   position: absolute;
   top: -36px;
   right: -36px;
   width: 40px;
   height: 40px;
+  background-image: url(../images/close.svg);
 }
 
 .popup__close:hover {
@@ -133,7 +129,7 @@
 
   .popup__fieldset {
     width: 320px;
-    height: 500px;
+    height: 520px;
     border-radius: 0px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;

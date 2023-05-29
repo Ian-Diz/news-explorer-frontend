@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NewsCard = ({ card, isLoggedIn }) => {
+const NewsCard = ({ card, isLoggedIn, isSaved }) => {
   const [isShown, setIsShown] = React.useState(false);
+  const [isClicked, setIsClicked] = React.useState(false);
 
   const onEnter = () => {
     setIsShown(true);
@@ -10,6 +11,10 @@ const NewsCard = ({ card, isLoggedIn }) => {
 
   const onLeave = () => {
     setIsShown(false);
+  };
+
+  const onBookClick = () => {
+    setIsClicked(!isClicked);
   };
 
   return (
@@ -35,11 +40,36 @@ const NewsCard = ({ card, isLoggedIn }) => {
             Sign in to save articles
           </p>
         )}
-        <button
-          className={`card__book ${isLoggedIn ? "card__book-active" : null}`}
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-        />
+        {isSaved ? (
+          <>
+            <p className="card__keyword">Keyword</p>
+            <p
+              className={
+                isShown ? "card__popout-active" : "card__popout-inactive "
+              }
+            >
+              Remove from saved
+            </p>
+            <button
+              className="card__delete"
+              onMouseEnter={onEnter}
+              onMouseLeave={onLeave}
+            />
+          </>
+        ) : (
+          <button
+            className={`card__book  ${
+              isClicked
+                ? "card__book-clicked"
+                : isLoggedIn
+                ? "card__book-active"
+                : null
+            }`}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+            onClick={isLoggedIn ? onBookClick : null}
+          />
+        )}
       </div>
       <p className="card__date">{card.publishedAt.slice(0, 10)}</p>
       <h3 className="card__title">{card.title}</h3>

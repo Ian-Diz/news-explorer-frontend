@@ -24,21 +24,22 @@ const NavBar = ({
       setArticleClass("active");
       setColor(logout);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className={`nav nav__${theme}`}>
-      <Link to="/" className="nav__logo nav__link">
+      <Link to="/" className="nav__logo nav__link nav__link-active">
         News Explorer
       </Link>
       <button
-        className={`nav__burger nav__burger-${theme}`}
+        className={`nav__burger nav__burger_${theme}`}
         onClick={handleMobileClick}
       />
       <div className="nav__right">
         <Link
           to="/"
-          className={`nav__home nav__link nav__highlight-${homeClass}-${theme}`}
+          className={`nav__home nav__link nav__highlight-${homeClass}_${theme} nav__link-active`}
         >
           Home
         </Link>
@@ -46,11 +47,11 @@ const NavBar = ({
           <>
             <Link
               to="/saved-articles"
-              className={`nav__articles nav__link nav__highlight-${articleClass}-${theme}`}
+              className={`nav__articles nav__link nav__highlight-${articleClass}_${theme} nav__link-${articleClass}`}
             >
               Saved articles
             </Link>
-            <button className={`nav__logout-button nav__button-${theme}`}>
+            <button className={`nav__logout-button nav__button_${theme}`}>
               Username
               <img
                 src={color}
@@ -61,7 +62,7 @@ const NavBar = ({
           </>
         ) : (
           <button
-            className={`nav__signin nav__button-${theme} nav__button`}
+            className={`nav__signin nav__button_${theme} nav__button`}
             onClick={onLoginClick}
           >
             Sign in

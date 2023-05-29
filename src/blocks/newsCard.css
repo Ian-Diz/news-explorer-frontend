@@ -93,8 +93,17 @@
 }
 
 .card__book-active:hover {
-  background-image: url(../images/blackBookmark.svg);
+  background-image: url(../images/filledBookmark.svg);
   cursor: pointer;
+}
+
+.card__book-clicked {
+  background-image: url(../images/filledBookmark.svg);
+}
+
+.card__book-clicked:hover {
+  cursor: pointer;
+  background-image: url(../images/blackBookmark.svg);
 }
 
 .card__delete {
@@ -176,6 +185,7 @@
   color: #b6bcbf;
   margin: 18px 0 24px 24px;
   width: fit-content;
+  justify-self: flex-end;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {

@@ -1,5 +1,5 @@
 import React from "react";
-import NewsCardSaved from "./NewsCardSaved";
+import NewsCard from "./NewsCard";
 import { getTempArticles } from "../utils/newsApi";
 
 const NewsCardListSaved = ({ isLoggedIn }) => {
@@ -13,16 +13,18 @@ const NewsCardListSaved = ({ isLoggedIn }) => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <section className="news">
+    <section className="news-saved">
       <ul className="news__cards">
         {newsCards.slice(0, 5).map((card) => (
-          <NewsCardSaved
+          <NewsCard
             card={card}
             key={Math.random()}
             isLoggedIn={isLoggedIn}
+            isSaved={true}
           />
         ))}
       </ul>

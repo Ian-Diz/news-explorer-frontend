@@ -1,5 +1,4 @@
 import React from "react";
-import closeIcon from "../images/close.svg";
 
 const PopupWithForm = ({
   title,
@@ -17,21 +16,20 @@ const PopupWithForm = ({
 
   React.useEffect(() => {
     handleSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="popup__container-form" onClick={onOutClick}>
       <form className="popup__form" onSubmit={handleSubmit}>
         <fieldset className="popup__fieldset">
-          <button type="button" className="popup__button" aria-label="Close">
-            <img
-              className="popup__close"
-              alt="Close button"
-              src={closeIcon}
-              id="addPopup-close"
-              onClick={onClose}
-            />
-          </button>
+          <button
+            type="button"
+            className="popup__button"
+            aria-label="Close"
+            onClick={onClose}
+          />
+
           <h2 className="popup__header">{title}</h2>
           {children}
           <button

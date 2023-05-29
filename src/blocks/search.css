@@ -37,7 +37,7 @@
   align-items: center;
   padding: 0;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .search__container {

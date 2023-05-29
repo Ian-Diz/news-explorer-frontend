@@ -12,6 +12,7 @@
 
 .nav__dark {
   color: #000;
+  box-shadow: inset 0px -1px 0px #d1d2d6;
 }
 
 .nav__logo {
@@ -36,8 +37,12 @@
   display: flex;
 }
 
-.nav__link:visited {
+.nav__link-active:visited {
   color: inherit;
+}
+
+.nav__link-inactive:visited {
+  color: #b6bcbf;
 }
 
 .nav__burger {
@@ -70,20 +75,22 @@
   align-items: center;
 }
 
-.nav__highlight-active-light {
+.nav__highlight-active_light {
   box-shadow: inset 0px -3px 0px rgba(255, 255, 255, 1);
 }
 
-.nav__highlight-inactive-light {
+.nav__highlight-inactive_light {
   box-shadow: inset 0px -3px 0px rgba(255, 255, 255, 0);
+  color: #b6bcbf;
 }
 
-.nav__highlight-active-dark {
+.nav__highlight-active_dark {
   box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 1);
 }
 
-.nav__highlight-inactive-dark {
+.nav__highlight-inactive_dark {
   box-shadow: inset 0px -3px 0px rgba(255, 255, 255, 0);
+  color: #b6bcbf;
 }
 
 .nav__home:hover {
@@ -99,11 +106,11 @@
   color: inherit;
 }
 
-.nav__button-light {
+.nav__button_light {
   border: 1px solid #fff;
 }
 
-.nav__button-dark {
+.nav__button_dark {
   border: 1px solid #000;
 }
 
@@ -186,11 +193,11 @@
     margin: 16px 16px 0 16px;
   }
 
-  .nav__burger-light {
+  .nav__burger_light {
     background-image: url(../images/hamborgerWhite.svg);
   }
 
-  .nav__burger-dark {
+  .nav__burger_dark {
     background-image: url(../images/hamburgorBlack.svg);
   }
 }

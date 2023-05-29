@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import github from "../images/github.svg";
-import linkedIn from "../images/linkedin.png";
+import linkedIn from "../images/linkedin.svg";
 
 const Footer = () => {
   return (
@@ -11,20 +11,25 @@ const Footer = () => {
           <Link to="/" className="footer__link">
             <button className="footer__button footer__text">Home</button>
           </Link>
-          <Link to="https://practicum.com" className="footer__link">
+          <Link
+            to="https://practicum.com"
+            className="footer__link"
+            target="_blank"
+          >
             <button className="footer__text footer__button">Practicum</button>
           </Link>
         </div>
         <div className="footer__icons">
-          <Link to="https://github.com/Ian-Diz" className="footer__link">
+          <Link
+            to="https://github.com/Ian-Diz"
+            className="footer__icon"
+            target="_blank"
+          >
             <button className="footer__button footer__github">
               <img alt="Github logo" src={github} className="footer__github" />
             </button>
           </Link>
-          <Link
-            to="https://www.linkedin.com/in/iandizney/"
-            className="footer__link"
-          >
+          <Link to="https://www.linkedin.com/in/iandizney/" target="_blank">
             <button className="footer__linkedIn footer__button">
               <img
                 src={linkedIn}

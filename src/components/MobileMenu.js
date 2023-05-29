@@ -11,9 +11,20 @@ const MobileMenu = ({
   handleRegister,
   isLoggedIn,
 }) => {
+  const [loggedIn, setLoggedIn] = React.useState("");
+
+  React.useEffect(() => {
+    if (isLoggedIn) {
+      setLoggedIn("loggedin");
+    } else {
+      setLoggedIn("loggedout");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="menu" onClick={handleOutClick}>
-      <div className="menu__container">
+      <div className={`menu__container-${loggedIn}`}>
         <div className="menu__over">
           <Link to="/" className="menu__logo menu__link" onClick={closePopups}>
             News Explorer

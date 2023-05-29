@@ -9,6 +9,7 @@ import SavedNews from "./SavedNews";
 import MainPage from "./MainPage";
 import { getNews } from "../utils/newsApi";
 import MobileMenu from "./MobileMenu";
+import ActivePopupContext from "../contexts/ActivePopupContext";
 
 function App() {
   const [activePopup, setActivePopup] = React.useState("");
@@ -81,7 +82,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ActivePopupContext.Provider value={activePopup}>
       <Routes>
         <Route
           exact
@@ -142,7 +143,7 @@ function App() {
           isLoggedIn={isLoggedIn}
         />
       )}
-    </>
+    </ActivePopupContext.Provider>
   );
 }
 

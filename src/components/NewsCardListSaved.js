@@ -17,7 +17,7 @@ const NewsCardListSaved = ({ isLoggedIn }) => {
   }, []);
 
   return (
-    <section className="news-saved">
+    <section className="news">
       <ul className="news__cards">
         {newsCards.slice(0, 5).map((card) => (
           <NewsCard

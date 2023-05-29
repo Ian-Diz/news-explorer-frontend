@@ -1,3 +1,4 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 
 const SearchForm = ({ handleSearchSubmit }) => {
@@ -6,10 +7,20 @@ const SearchForm = ({ handleSearchSubmit }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [buttonColor, setButtonColor] = React.useState({});
 
   const onSubmit = (data) => {
     handleSearchSubmit(data.searchs);
+    setButtonColor({
+      backgroundColor: "#2a65cc",
+    });
   };
+
+  React.useState(() => {
+    setButtonColor({
+      backgroundColor: "#2f71e5",
+    });
+  }, []);
 
   return (
     <form className="search__form" onSubmit={handleSubmit(onSubmit)}>
@@ -27,7 +38,9 @@ const SearchForm = ({ handleSearchSubmit }) => {
             <span className="search__errors">{errors.searchs.message}</span>
           )}
         </div>
-        <button className="search__search">Search</button>
+        <button className="search__search" style={buttonColor}>
+          Search
+        </button>
       </fieldset>
       <button className="search__search-mobile">Search</button>
     </form>

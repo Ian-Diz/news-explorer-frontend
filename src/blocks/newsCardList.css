@@ -1,12 +1,5 @@
 .news {
-  margin: 80px 104px 0 104px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.news-saved {
-  padding: 80px 104px 0 104px;
+  padding: 0 104px 0 104px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -25,7 +18,7 @@
 
 .news__cards {
   display: grid;
-  margin: 64px 0 0 0;
+  margin: 64px 0 62px 0;
   gap: 16px;
   padding: 0;
   grid-template-columns: repeat(3, 400px);
@@ -55,11 +48,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .news {
-    margin: 32px 16px 0 16px;
-  }
-
-  .news-saved {
-    padding: 32px 16px 0 16px;
+    padding: 0 16px 0 16px;
     margin: 0;
   }
 
@@ -71,22 +60,19 @@
 
   .news__cards {
     grid-template-columns: 224px;
-    margin: 24px 0 0 0;
+    margin: 24px 0 24px 0;
   }
 
   .news__show {
     width: 288px;
     height: 56px;
+    margin: 16px auto 24px auto;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .news {
-    margin: 40px 40px 32px 40px;
-  }
-
-  .news-saved {
-    padding: 40px 40px 32px 40px;
+    padding: 0 40px 32px 40px;
     margin: 0;
   }
 
@@ -104,5 +90,6 @@
   .news__show {
     width: 240px;
     height: 56px;
+    margin: 32px auto 8px auto;
   }
 }

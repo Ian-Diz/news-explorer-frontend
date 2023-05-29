@@ -1,4 +1,4 @@
-.popup__container-form {
+.popup {
   z-index: 1;
   position: fixed;
   bottom: 0;
@@ -44,7 +44,7 @@
   background-image: url(../images/close.svg);
 }
 
-.popup__close:hover {
+.popup__button:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: 0.3s;
@@ -123,23 +123,25 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .popup__container-form {
+  .popup {
     align-items: flex-end;
   }
 
   .popup__fieldset {
     width: 320px;
-    height: 520px;
+    height: 545px;
     border-radius: 0px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    border: none;
   }
 
-  .popup__close {
+  .popup__button {
     top: -40px;
     right: 16px;
     width: 24px;
     height: 24px;
+    background-size: 100%;
   }
 
   .popup__header {

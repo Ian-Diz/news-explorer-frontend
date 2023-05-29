@@ -20,7 +20,7 @@ const PopupWithForm = ({
   }, []);
 
   return (
-    <div className="popup__container-form" onClick={onOutClick}>
+    <section className="popup" onClick={onOutClick}>
       <form className="popup__form" onSubmit={handleSubmit}>
         <fieldset className="popup__fieldset">
           <button
@@ -50,7 +50,7 @@ const PopupWithForm = ({
           </button>
         </fieldset>
       </form>
-    </div>
+    </section>
   );
 };
 

@@ -8,6 +8,8 @@ const LoginPopup = ({
   handleLogin,
   handleSignupClick,
   isLoading,
+  errorMessage,
+  setErrorMessage,
 }) => {
   const buttonTexts = {
     button: isLoading ? "Saving..." : "Sign in",
@@ -20,9 +22,8 @@ const LoginPopup = ({
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    closePopups();
+  const onSubmit = ({ email, password }) => {
+    handleLogin(email, password);
   };
 
   return (
@@ -34,6 +35,8 @@ const LoginPopup = ({
       otherButtonClick={handleSignupClick}
       handleSubmit={handleSubmit(onSubmit)}
       isValid={isValid}
+      errorMessage={errorMessage}
+      setErrorMessage={setErrorMessage}
     >
       <label className="popup__label">
         Email

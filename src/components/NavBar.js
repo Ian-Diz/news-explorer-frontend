@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logout from "../images/logout.svg";
 import logoutWhite from "../images/logoutWhite.svg";
 import ActivePopupContext from "../contexts/ActivePopupContext";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 const NavBar = ({
   onLoginClick,
@@ -10,12 +11,16 @@ const NavBar = ({
   isHomeActive,
   isLoggedIn,
   handleMobileClick,
+  handleLogout,
 }) => {
   const [homeClass, setHomeClass] = React.useState("");
   const [articleClass, setArticleClass] = React.useState("");
   const [color, setColor] = React.useState("");
 
   const activePopup = useContext(ActivePopupContext);
+  const currentUser = useContext(CurrentUserContext);
+
+  const userData = currentUser.data ? currentUser.data : { name: "" };
 
   React.useEffect(() => {
     if (isHomeActive) {
@@ -29,8 +34,6 @@ const NavBar = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(activePopup);
 
   return (
     <div className={`nav nav_${theme}`}>
@@ -58,8 +61,11 @@ const NavBar = ({
             >
               Saved articles
             </Link>
-            <button className={`nav__logout-button nav__button_${theme}`}>
-              Username
+            <button
+              className={`nav__logout-button nav__button_${theme}`}
+              onClick={handleLogout}
+            >
+              {userData.name}
               <img
                 src={color}
                 alt="Logout Button"

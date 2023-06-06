@@ -9,6 +9,8 @@ const PopupWithForm = ({
   handleSubmit,
   otherButtonClick,
   isValid,
+  errorMessage,
+  setErrorMessage,
 }) => {
   if (!buttonText.other) {
     buttonText.other = null;
@@ -16,6 +18,11 @@ const PopupWithForm = ({
 
   React.useEffect(() => {
     handleSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    setErrorMessage("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -32,6 +39,9 @@ const PopupWithForm = ({
 
           <h2 className="popup__header">{title}</h2>
           {children}
+
+          <span className="popup__errors-signup">{errorMessage}</span>
+
           <button
             className="popup__main"
             type="submit"

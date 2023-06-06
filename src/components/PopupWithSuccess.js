@@ -1,7 +1,11 @@
 import React from "react";
 import closeIcon from "../images/close.svg";
 
-const PopupWithSuccess = ({ closePopups, handleOutClick }) => {
+const PopupWithSuccess = ({
+  closePopups,
+  handleOutClick,
+  handleLoginClick,
+}) => {
   return (
     <div className="popup__container-confirm" onClick={handleOutClick}>
       <div className="popup__confirm">
@@ -13,11 +17,12 @@ const PopupWithSuccess = ({ closePopups, handleOutClick }) => {
             onClick={closePopups}
           />
         </button>
-        <div className="popup__container_confirm">
-          <p className="popup__text_confirm">
-            Are you sure you want to delete this item?
-          </p>
-        </div>
+        <h3 className="popup__confirm-title">
+          Registration successfully completed!
+        </h3>
+        <button className="popup__confirm-signin" onClick={handleLoginClick}>
+          Sign in
+        </button>
       </div>
     </div>
   );

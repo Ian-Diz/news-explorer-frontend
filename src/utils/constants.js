@@ -16,3 +16,8 @@ export const getLastWeek = () => {
 export const getCurrentDate = () => {
   return currentDate.toLocaleString();
 };
+
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.newsexplorer.ignorelist.com"
+    : "http://localhost:3000";

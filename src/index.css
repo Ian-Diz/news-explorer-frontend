@@ -13,6 +13,7 @@
 @import url(./blocks/saved.css);
 @import url(./blocks/menu.css);
 @import url(./blocks/not.css);
+@import url(./blocks/popupSucess.css);
 
 body {
   margin: 0;

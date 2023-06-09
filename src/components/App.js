@@ -112,7 +112,10 @@ function App() {
     setActivePopup("");
   };
 
-  const handleBook = (card) => {
+  const handleBook = (card, isBooked, id) => {
+    /*isBooked
+      ? removeArticle(id, token).catch((e) => console.log(e))
+      :*/
     addArticle({ keyword: keyword, ...card }, token, currentUser).catch((e) =>
       console.log(e)
     );
@@ -200,6 +203,7 @@ function App() {
                 handleLogout={handleLogout}
                 handleBook={handleBook}
                 setKeyword={setKeyword}
+                handleSignupClick={handleSignupClick}
               />
             }
           />

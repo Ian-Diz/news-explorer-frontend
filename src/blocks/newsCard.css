@@ -92,9 +92,9 @@
   background-position: center;
 }
 
-.card__book:hover {
+.card__book-active:hover {
+  background-image: url(../images/filledBookmark.svg);
   cursor: pointer;
-  background-image: url(../images/blackBookmark.svg);
 }
 
 .card__book-clicked {
@@ -102,8 +102,8 @@
 }
 
 .card__book-clicked:hover {
-  background-image: url(../images/filledBookmark.svg);
-  cursor: default;
+  cursor: pointer;
+  background-image: url(../images/blackBookmark.svg);
 }
 
 .card__delete {

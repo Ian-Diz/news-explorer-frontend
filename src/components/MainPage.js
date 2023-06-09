@@ -13,6 +13,7 @@ const MainPage = ({
   handleLogout,
   handleBook,
   setKeyword,
+  handleSignupClick,
 }) => {
   return (
     <>
@@ -32,6 +33,7 @@ const MainPage = ({
           isLoading={isSearchLoading}
           isLoggedIn={isLoggedIn}
           handleBook={handleBook}
+          handleSignupClick={handleSignupClick}
         />
       )}
       <Main />

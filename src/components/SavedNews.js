@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import NavBar from "./NavBar";
 import NewsCardListSaved from "./NewsCardListSaved";
 import CurrentUserContext from "../contexts/CurrentUserContext";
-import { getArticles } from "../utils/mainApi";
+import SavedCardsContext from "../contexts/SavedCardsContext";
 
 const SavedNews = ({
   onLoginClick,
   isLoggedIn,
   handleMobileClick,
   handleLogout,
-  token,
   handleDeleteClick,
 }) => {
   const currentUser = useContext(CurrentUserContext);
+  const savedCards = useContext(SavedCardsContext);
   const [newsCards, setNewsCards] = React.useState([]);
   const [keywords, setKeywords] = React.useState([]);
   const [keywordsAmount, setKeywordsAmount] = React.useState(1);
@@ -70,13 +70,7 @@ const SavedNews = ({
   }, [newsCards]);
 
   React.useEffect(() => {
-    getArticles(token)
-      .then((data) => {
-        setNewsCards([...new Map(data.map((v) => [v.title, v])).values()]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setNewsCards([...new Map(savedCards.map((v) => [v.title, v])).values()]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

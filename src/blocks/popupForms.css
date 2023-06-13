@@ -44,15 +44,6 @@
   font-weight: 700;
 }
 
-.popup__inputs_container {
-  margin: 14px 0 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: space-between;
-  height: 76px;
-}
-
 .popup__input_button {
   margin: 0;
 }

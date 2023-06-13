@@ -12,8 +12,6 @@ const NewsCard = ({
   newsCards,
 }) => {
   const [isShown, setIsShown] = React.useState(false);
-  const [isClicked, setIsClicked] = React.useState(false);
-  const [hasImage, setHasImage] = React.useState(true);
   const [isVisible, setIsVisible] = React.useState(true);
   const [isBooked, setIsBooked] = React.useState(false);
 
@@ -26,14 +24,12 @@ const NewsCard = ({
   };
 
   const onBookClick = () => {
-    setIsClicked(!isClicked);
-    handleBook(card, isBooked, card._id);
+    handleBook(card, isBooked);
     setIsBooked(!isBooked);
   };
 
   const handleDelete = () => {
-    handleDeleteClick(card._id);
-    console.log(card._id);
+    handleDeleteClick(card._id, card);
     setIsVisible(false);
     setNewsCards(
       newsCards.filter((c) => {
@@ -46,13 +42,22 @@ const NewsCard = ({
   };
 
   React.useEffect(() => {
-    if (card.urlToImage === true || card.image === true) {
-      setHasImage(true);
-    } else {
-      setHasImage(false);
+    if (card.urlToImage === null || card.image === null) {
+      card.urlToImage =
+        "https://cdn.discordapp.com/attachments/486264193402798080/1116950882626588783/image.png";
+      card.image =
+        "https://cdn.discordapp.com/attachments/486264193402798080/1116950882626588783/image.png";
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  React.useEffect(() => {
+    if (newsCards.some((c) => c.link === card.url || c.link === card.link)) {
+      setIsBooked(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newsCards]);
 
   return (
     <>
@@ -64,15 +69,11 @@ const NewsCard = ({
               className="card__link"
               target="_blank"
             >
-              {hasImage ? (
-                <h3 className="card__placeholder">Image could not be found</h3>
-              ) : (
-                <img
-                  src={card.urlToImage ? card.urlToImage : card.image}
-                  alt={`${card.title}`}
-                  className="card__image"
-                />
-              )}
+              <img
+                src={card.urlToImage ? card.urlToImage : card.image}
+                alt={`${card.title}`}
+                className="card__image"
+              />
             </Link>
             {isLoggedIn ? null : (
               <p
@@ -103,7 +104,7 @@ const NewsCard = ({
             ) : (
               <button
                 className={`card__book  ${
-                  isClicked
+                  isBooked
                     ? "card__book-clicked"
                     : isLoggedIn
                     ? "card__book-active"

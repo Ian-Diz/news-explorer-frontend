@@ -8,10 +8,15 @@ const MobileMenu = ({
   handleClick,
   handleOutClick,
   handleLoginClick,
-  handleRegister,
   isLoggedIn,
+  handleLogout,
 }) => {
   const [loggedIn, setLoggedIn] = React.useState("");
+
+  const handleLogoutClick = () => {
+    handleLogout();
+    closePopups();
+  };
 
   React.useEffect(() => {
     if (isLoggedIn) {
@@ -50,7 +55,7 @@ const MobileMenu = ({
             >
               Saved articles
             </Link>
-            <button className="menu__logout-button" onClick={closePopups}>
+            <button className="menu__logout-button" onClick={handleLogoutClick}>
               Username
               <img
                 src={logout}

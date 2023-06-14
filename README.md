@@ -15,8 +15,8 @@ This app allows users to look up news articles via the main search function, aft
 
 **Github links**
 
-- [Link to frontend of the project project](https://github.com/Ian-Diz/news-explorer-frontend)
-
-- [Link to frontend website link](https://ian-diz.github.io/news-explorer-frontend)
+- [Link to frontend of the project](https://github.com/Ian-Diz/news-explorer-frontend)
 
 - [Link to backend of the project](https://github.com/Ian-Diz/news-explorer-backend)
+
+- [Link to website](https://www.newsexplorer.ignorelist.com/)

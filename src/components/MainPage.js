@@ -10,6 +10,10 @@ const MainPage = ({
   isSearchLoading,
   isLoggedIn,
   handleMobileClick,
+  handleLogout,
+  handleBook,
+  setKeyword,
+  handleSignupClick,
 }) => {
   return (
     <>
@@ -20,12 +24,16 @@ const MainPage = ({
         isLoggedIn={isLoggedIn}
         isHomeActive={true}
         handleMobileClick={handleMobileClick}
+        handleLogout={handleLogout}
+        setKeyword={setKeyword}
       />
       {activeSearch && (
         <NewsCardList
           cards={cards}
           isLoading={isSearchLoading}
           isLoggedIn={isLoggedIn}
+          handleBook={handleBook}
+          handleSignupClick={handleSignupClick}
         />
       )}
       <Main />

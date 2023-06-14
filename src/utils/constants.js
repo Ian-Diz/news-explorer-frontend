@@ -16,3 +16,5 @@ export const getLastWeek = () => {
 export const getCurrentDate = () => {
   return currentDate.toLocaleString();
 };
+
+export const baseUrl = "https://api.newsexplorer.ignorelist.com";

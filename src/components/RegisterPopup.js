@@ -8,6 +8,8 @@ const RegisterPopup = ({
   handleLoginClick,
   handleSignup,
   isLoading,
+  errorMessage,
+  setErrorMessage,
 }) => {
   const buttonTexts = {
     button: isLoading ? "Saving..." : "Sign up",
@@ -20,9 +22,8 @@ const RegisterPopup = ({
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    closePopups();
+  const onSubmit = ({ email, password, name }) => {
+    handleSignup(email, password, name);
   };
 
   return (
@@ -34,6 +35,8 @@ const RegisterPopup = ({
       otherButtonClick={handleLoginClick}
       handleSubmit={handleSubmit(onSubmit)}
       isValid={isValid}
+      errorMessage={errorMessage}
+      setErrorMessage={setErrorMessage}
     >
       <label className="popup__label">
         Email
@@ -82,7 +85,7 @@ const RegisterPopup = ({
           className="popup__input"
           placeholder="Enter your username"
           type="text"
-          {...register("username", {
+          {...register("name", {
             required: "This field is required",
             minLength: {
               value: 2,
@@ -95,8 +98,8 @@ const RegisterPopup = ({
           })}
         />
       </label>
-      {errors.username && (
-        <span className="popup__errors">{errors.username.message}</span>
+      {errors.name && (
+        <span className="popup__errors">{errors.name.message}</span>
       )}
     </PopupWithForm>
   );

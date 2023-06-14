@@ -35,6 +35,8 @@ function App() {
       .signIn(email, pw)
       .then((data) => {
         if (data.token) {
+          setToken(data.token);
+
           auth
             .checkToken(data.token)
             .then((res) => {
@@ -50,6 +52,10 @@ function App() {
               navigate("/saved-articles");
             })
             .catch((err) => console.log(err));
+
+          getArticles(data.token).then((data) => {
+            setSavedCards(data);
+          });
         }
       })
       .then(() => {
@@ -135,6 +141,8 @@ function App() {
     isBooked ? checkDelete(card) : checkDuplicate(card);
   };
 
+  console.log(token);
+
   const handleDeleteClick = (id, card) => {
     removeArticle(id, token)
       .then(() => {
@@ -205,6 +213,7 @@ function App() {
         })
         .then(() => {
           getArticles(jwt).then((data) => {
+            console.log(data);
             setSavedCards(data);
           });
         })

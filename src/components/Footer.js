@@ -16,7 +16,7 @@ const Footer = () => {
             className="footer__link"
             target="_blank"
           >
-            <button className="footer__text footer__button">Practicum</button>
+            <button className="footer__text footer__button">TripleTen</button>
           </Link>
         </div>
         <div className="footer__icons">

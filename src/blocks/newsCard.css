@@ -205,8 +205,8 @@
   }
 
   .card__popout-active {
-    top: 8px;
-    left: 8px;
+    top: 16px;
+    left: 16px;
     width: 180px;
   }
 

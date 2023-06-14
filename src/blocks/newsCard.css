@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.card__text-link {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 .card__placeholder {
   font-size: 30px;
   line-height: 1.2em;

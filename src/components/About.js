@@ -10,8 +10,8 @@ const About = () => {
       <div className="about__container">
         <h2 className="about__title">About the author</h2>
         <p className="about__paragraph">
-          Hi name is Ian Dizney, I am full stack engineer looking for work! This
-          website is my final project in TripleTen's software development
+          Hi, my name is Ian Dizney, I am full stack engineer looking for work!
+          This website is my final project in TripleTen's software development
           program, and I am now on the hunt for a full time position.
         </p>
         <p className="about__paragraph">

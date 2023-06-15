@@ -95,6 +95,9 @@ function App() {
     setIsLoggedIn(false);
     setCurrentUser({});
     localStorage.removeItem("jwt");
+    setActiveSearch(false);
+    setKeyword("");
+    setSavedCards([]);
   };
 
   const handleLoginClick = () => {
@@ -140,8 +143,6 @@ function App() {
   const handleBook = (card, isBooked) => {
     isBooked ? checkDelete(card) : checkDuplicate(card);
   };
-
-  console.log(token);
 
   const handleDeleteClick = (id, card) => {
     removeArticle(id, token)

@@ -78,6 +78,7 @@ function App() {
           setActivePopup("success");
         } else {
           console.log("Something went wrong.");
+          setErrorMessage("Something went wrong");
         }
       })
       .then(() => {
@@ -214,7 +215,6 @@ function App() {
         })
         .then(() => {
           getArticles(jwt).then((data) => {
-            console.log(data);
             setSavedCards(data);
           });
         })

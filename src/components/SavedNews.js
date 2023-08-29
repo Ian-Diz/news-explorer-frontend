@@ -17,8 +17,6 @@ const SavedNews = ({
   const [keywords, setKeywords] = React.useState([]);
   const [keywordsAmount, setKeywordsAmount] = React.useState(1);
 
-  console.log(savedCards);
-
   const keywordArray = [];
   const keywordSortableArray = [];
   let keywordSortedArray = [];

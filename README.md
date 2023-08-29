@@ -2,7 +2,7 @@
 
 ## About the project
 
-This app allows users to look up news articles via the main search function, after these articles display, users can choose to either just browse or can make an account to save articles they found interesting for later.
+News Explorer is a site that provides a search box for users to look up a wide collection of news articles from a third-party API. When a user enters text into the search bar and presses the "Search" button, it sends a GET request to said third-party API, retrieving up to 100 articles for the user to browse. The data of these articles fill in templates, which are displayed to the user 3 at a time, with the option to show more in increments of three. Should the user decide to, they could create an account and save any articles they find interested by clicking the little bookmark in the upper right corner. Clicking that bookmark sends a POST request with the data from the article, and stores said article's data in a back-end I created. The user can then go to their profile page, upon which a GET request will be made to the back-end to fetch any articles that that user has saved, which will then be displayed in a list, with the word or phrase the user used to find that article, as well as with a delete button if they wish to unsave the article.
 
 ### Technologies used for front-end
 
